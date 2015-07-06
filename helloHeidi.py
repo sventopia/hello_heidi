@@ -96,11 +96,10 @@ class helloHeidi(SharedState):
 
         getArchLocalIP = "ifconfig " + device + \
                             " | grep -E \'inet\s\' \
-                            | awk \'{ print $2 }\' \
-                            | sed -E \'s/\/\S*//\'"
+                            | awk \'{ print $2 }\'"
 
         # Run the os command and hope for the best
-        procIP = subprocess.check_output(getArchLocalIP, shell=True, stderr=subprocess.STDOUT).strip()
+        procIP = subprocess.check_output(getArchLocalIP, shell=True, stderr=subprocess.STDOUT).strip().decode("utf-8")
 
         # Assign to IP if the address looks valid, we should get '-9' for non-IPs
         ip = [self.__validateIP(procIP)]
