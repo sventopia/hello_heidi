@@ -99,6 +99,7 @@ class helloHeidi(SharedState):
                             | awk \'{ print $2 }\'"
 
         # Run the os command and hope for the best
+        #  the expected output will be stripped an decoded into UTF8
         procIP = subprocess.check_output(getArchLocalIP, shell=True, stderr=subprocess.STDOUT).strip().decode("utf-8")
 
         # Assign to IP if the address looks valid, we should get '-9' for non-IPs
@@ -141,11 +142,11 @@ if __name__ == "__main__":
     print("Heidi's global IP is %s and her local IP is %s" % (heidi.globalIP, heidi.localIP))
     print("Her POST returned with a status code %d" % heidi.postStatus)
 
-    # Also, test out the singleton pattern as indicated above
-    # A second instance should have a separate address in memory, but any change
-    # to the variables of one should be reflected across all instances
+    # UNCOMMENT EVERYTHING BELOW THIS LINE TO TEST THE SINGLETON SHARED STATE THING
 
-    # UNCOMMENT EVERYTHING BELOW THIS LINE TO TEST THE SINGLETON
+    # # Also, test out the singleton pattern as indicated above
+    # # A second instance should have a separate address in memory, but any change
+    # # to the variables of one should be reflected across all instances
 
     # print("\n------------\nTesting the singleton\n-------------")
     # print("Creating a second helloHeidi object --> heidi2")
