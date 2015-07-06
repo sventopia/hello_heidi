@@ -1,7 +1,6 @@
 FROM base/archlinux
 MAINTAINER sventopia <sventopia@me.com>
 RUN pacman -Sy
-RUN pacman -Sy net-tools
-RUN pacman -S --noconfirm python python-pip
+RUN pacman -S --noconfirm net-tools python python-pip
 RUN pip install requests IPy
 COPY helloHeidi.py /opt
