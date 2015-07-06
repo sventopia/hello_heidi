@@ -14,6 +14,5 @@ python helloHeidi.py
 Alternatively, you can just use an Archlinux-based **docker** image 
 ```
 docker pull sventopia/hello-heidi
-docker run -t -i sventopia/hello-heidi /opt/hello-heidi/helloHeidi.py
+docker run -t -i sventopia/hello-heidi /opt/hello_heidi/helloHeidi.py
 ```
-    
