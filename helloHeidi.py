@@ -114,7 +114,8 @@ class helloHeidi(SharedState):
     #       "localtime": "4:26pm"
     #       }
     def postIPInfo(self, url):
-        """POST the data to zapier.com"""
+        """ POST the data to zapier.com """
+
         payload = {'globalip': self.globalIP,
                     'localip': self.localIP,
                     'localtime': datetime.now().strftime('%I:%M%p')}
@@ -134,12 +135,12 @@ if __name__ == "__main__":
     toc = timeit.default_timer()
 
     # Print out the requested info to console
-    print "Creating a helloHeidi instance --> heidi"
-    print "\nHeidi is %d bytes" % sys.getsizeof(heidi) 
-    print "Her init routines took %f seconds to execute" % (toc - tic)
+    print("Creating a helloHeidi instance --> heidi")
+    print("\nHeidi is %d bytes" % sys.getsizeof(heidi))
+    print("Her init routines took %f seconds to execute" % (toc - tic))
 
-    print "Heidi's global IP is %s and her local IP is %s" % (heidi.globalIP, heidi.localIP)
-    print "Her POST returned with a status code %d" % heidi.postStatus
+    print("Heidi's global IP is %s and her local IP is %s" % (heidi.globalIP, heidi.localIP))
+    print("Her POST returned with a status code %d" % heidi.postStatus)
 
     # Also, test out the singleton pattern as indicated above
     # A second instance should have a separate address in memory, but any change
@@ -147,24 +148,24 @@ if __name__ == "__main__":
 
     # UNCOMMENT EVERYTHING BELOW THIS LINE TO TEST THE SINGLETON
 
-    # print "\n------------\nTesting the singleton\n-------------"
-    # print "Creating a second helloHeidi object --> heidi2"
+    # print("\n------------\nTesting the singleton\n-------------")
+    # print("Creating a second helloHeidi object --> heidi2")
     # heidi2 = helloHeidi()
 
-    # print "Heidi is at %s and Heidi2 is at %s" % (hex(id(heidi)), hex(id(heidi2)))
-    # print "\nThey should be separate instance objects, but the state should be the same."
-    # print "\nA value change in one should reflect the other."
+    # print("Heidi is at %s and Heidi2 is at %s" % (hex(id(heidi)), hex(id(heidi2))))
+    # print("\nThey should be separate instance objects, but the state should be the same.")
+    # print("\nA value change in one should reflect the other.")
 
     # # Show the initial globalIP vars for both
-    # print "Initial GlobalIP:\n\tHeidi: %s\n\tHeidi2: %s" % (heidi.globalIP, heidi2.globalIP)
-    # print "\nNow if we change Heidi's globalIP val, Heidi2 should reflect that change"
+    # print("Initial GlobalIP:\n\tHeidi: %s\n\tHeidi2: %s" % (heidi.globalIP, heidi2.globalIP))
+    # print("\nNow if we change Heidi's globalIP val, Heidi2 should reflect that change")
     
     # # Change a var in one instance
     # heidi.globalIP = "1.2.3.4"
 
     # # Show the globalIP vars again
-    # print "Initial GlobalIP:\n\tHeidi: %s\n\tHeidi2: %s" % (heidi.globalIP, heidi2.globalIP)
-    # print "\nIf the addresses are the same, then helloHeidi objects are behaving as a singleton"
+    # print("Initial GlobalIP:\n\tHeidi: %s\n\tHeidi2: %s" % (heidi.globalIP, heidi2.globalIP))
+    # print("\nIf the addresses are the same, then helloHeidi objects are behaving as a singleton")
 
     
 
